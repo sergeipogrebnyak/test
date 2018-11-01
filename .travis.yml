@@ -25,7 +25,6 @@ jobs:
       script: 
         - echo "CC ${CC_TAG}"
     - stage: test
-      env:
       script:
         - echo "IMAGE ${IMAGE}:${TAG}"
     - stage: deploy
