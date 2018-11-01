@@ -12,6 +12,11 @@ env:
     - IMAGE=integration-server
     # - IMAGE=integration-server TAG=10.1
 
+stages:
+  - builder
+  - test
+  - deploy
+
 jobs:
   include:
     - stage: builder
