@@ -20,11 +20,16 @@ stages:
 jobs:
   include:
     - stage: builder
+      env:
+        - IMAGE=none
       script: 
         - echo "CC ${CC_TAG}"
     - stage: test
+      env:
       script:
         - echo "IMAGE ${IMAGE}:${TAG}"
     - stage: deploy
+      env:
+        - IMAGE=none
       script:
         - echo "Deploy $TAG"
