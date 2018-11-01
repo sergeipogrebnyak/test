@@ -11,5 +11,10 @@ env:
     - IMAGE=integration-server TAG=10.3
     # - IMAGE=integration-server TAG=10.1
     
+before_install:
+  - echo "CC: $CC_TAG"
 script:
-  - echo $IMAGE:$TAG
+  - echo "IMAGE: $IMAGE:$TAG"
+
+after_build:
+  - echo "Deploy to $REG"
