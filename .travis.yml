@@ -11,17 +11,21 @@ env:
 
 stages:
   - infra
-  - build
+  - test
   - deploy
 
 jobs:
   include:
     - stage: infra
+      env:
+        - IMAGE=none
       script: 
         - echo "CC ${CC_TAG}"
 
-    - stage: build
+    - stage: test
       script: echo "$IMAGE"
 
     - stage: deploy
+      env:
+        - IMAGE=none
       script: echo "Deploy $TAG"
