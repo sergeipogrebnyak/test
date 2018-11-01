@@ -19,11 +19,11 @@ stages:
 
 jobs:
   include:
-    - stage: builder
+    - stage: infra
       script: 
         - echo "CC ${CC_TAG}"
 
-    - stage: builder
+    - stage: build
       script: echo "universal-messaging"
     - script: echo "integration-server"
 
