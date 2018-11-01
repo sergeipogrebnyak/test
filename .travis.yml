@@ -16,6 +16,3 @@ before_install:
 
 script:
   - echo "IMAGE ${IMAGE}:${TAG}"
-
-deploy:
-  - echo "Deploy to $REG"
