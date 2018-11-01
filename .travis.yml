@@ -23,8 +23,8 @@ jobs:
       script: 
         - echo "CC ${CC_TAG}"
 
-    # test
-    - script: echo "universal-messaging"
+    - stage: builder
+      script: echo "universal-messaging"
     - script: echo "integration-server"
 
     - stage: deploy
