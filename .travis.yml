@@ -14,6 +14,8 @@ stages:
   - test
   - deploy
 
+script: echo $IMAGE
+
 jobs:
   include:
     - stage: infra
@@ -21,9 +23,6 @@ jobs:
         - IMAGE=none
       script: 
         - echo "CC ${CC_TAG}"
-
-    - stage: test
-      script: echo "$IMAGE"
 
     - stage: deploy
       env:
