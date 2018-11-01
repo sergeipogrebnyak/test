@@ -5,12 +5,9 @@ env:
     - TAG=10.3
     - FIXES=ALL
     - REG=sergeipogrebnyak
-  # matrix:
-  #   # - IMAGE=hello-world TAG=10.3
-  #   - IMAGE=universal-messaging
-  #   # - IMAGE=universal-messaging TAG=10.1
-  #   - IMAGE=integration-server
-  #   # - IMAGE=integration-server TAG=10.1
+  matrix:
+    - IMAGE=universal-messaging
+    - IMAGE=integration-server
 
 stages:
   - infra
@@ -24,9 +21,7 @@ jobs:
         - echo "CC ${CC_TAG}"
 
     - stage: build
-      script: echo "universal-messaging"
-    - script: echo "integration-server"
+      script: echo "$IMAGE"
 
     - stage: deploy
-      script:
-        - echo "Deploy $TAG"
+      script: echo "Deploy $TAG"
