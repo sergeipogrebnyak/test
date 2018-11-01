@@ -2,17 +2,24 @@ language: bash
 env:
   global:
     - CC_TAG=10.3
+    - TAG=10.3
     - FIXES=ALL
     - REG=sergeipogrebnyak
   matrix:
     # - IMAGE=hello-world TAG=10.3
-    - IMAGE=universal-messaging TAG=10.3
+    - IMAGE=universal-messaging
     # - IMAGE=universal-messaging TAG=10.1
-    - IMAGE=integration-server TAG=10.3
+    - IMAGE=integration-server
     # - IMAGE=integration-server TAG=10.1
-    
-before_install:
-  - echo "CC ${CC_TAG}"
 
-script:
-  - echo "IMAGE ${IMAGE}:${TAG}"
+jobs:
+  include:
+    - stage: builder
+      script: 
+        - echo "CC ${CC_TAG}"
+    - stage: test
+      script:
+        - echo "IMAGE ${IMAGE}:${TAG}"
+    - stage: deploy
+      script:
+        - echo "Deploy $TAG"
